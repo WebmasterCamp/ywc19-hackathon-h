@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { AccountCreateNestedManyWithoutUserInputObjectSchema } from "./AccountCreateNestedManyWithoutUserInput.schema";
+import { BookingCreateNestedManyWithoutUserInputObjectSchema } from "./BookingCreateNestedManyWithoutUserInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -12,6 +13,9 @@ const Schema: z.ZodType<Prisma.UserCreateWithoutSessionsInput> = z
     image: z.string().optional().nullable(),
     accounts: z
       .lazy(() => AccountCreateNestedManyWithoutUserInputObjectSchema)
+      .optional(),
+    Booking: z
+      .lazy(() => BookingCreateNestedManyWithoutUserInputObjectSchema)
       .optional(),
   })
   .strict();

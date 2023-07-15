@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StringFilterObjectSchema } from "./StringFilter.schema";
+import { BookingListRelationFilterObjectSchema } from "./BookingListRelationFilter.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -24,6 +25,7 @@ const Schema: z.ZodType<Prisma.RestaurantWhereInput> = z
     id: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
+    Booking: z.lazy(() => BookingListRelationFilterObjectSchema).optional(),
   })
   .strict();
 

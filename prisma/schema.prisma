@@ -56,6 +56,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    Booking       Booking[]
 }
 
 model VerificationToken {
@@ -66,6 +67,17 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+model Booking {
+    userId       String
+    user         User       @relation(fields: [userId], references: [id])
+    restaurantId String
+    restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+    id           String     @default(cuid())
+
+    @@id([userId, restaurantId, id])
+}
+
 model Restaurant {
-    id String @id @default(cuid())
+    id      String    @id @default(cuid())
+    Booking Booking[]
 }

@@ -3,6 +3,7 @@ import { SortOrderSchema } from "../enums/SortOrder.schema";
 import { SortOrderInputObjectSchema } from "./SortOrderInput.schema";
 import { AccountOrderByRelationAggregateInputObjectSchema } from "./AccountOrderByRelationAggregateInput.schema";
 import { SessionOrderByRelationAggregateInputObjectSchema } from "./SessionOrderByRelationAggregateInput.schema";
+import { BookingOrderByRelationAggregateInputObjectSchema } from "./BookingOrderByRelationAggregateInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -38,6 +39,9 @@ const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
       .optional(),
     sessions: z
       .lazy(() => SessionOrderByRelationAggregateInputObjectSchema)
+      .optional(),
+    Booking: z
+      .lazy(() => BookingOrderByRelationAggregateInputObjectSchema)
       .optional(),
   })
   .strict();

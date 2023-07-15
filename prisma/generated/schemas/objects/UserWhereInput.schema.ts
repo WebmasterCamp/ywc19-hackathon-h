@@ -4,6 +4,7 @@ import { StringNullableFilterObjectSchema } from "./StringNullableFilter.schema"
 import { DateTimeNullableFilterObjectSchema } from "./DateTimeNullableFilter.schema";
 import { AccountListRelationFilterObjectSchema } from "./AccountListRelationFilter.schema";
 import { SessionListRelationFilterObjectSchema } from "./SessionListRelationFilter.schema";
+import { BookingListRelationFilterObjectSchema } from "./BookingListRelationFilter.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -49,6 +50,7 @@ const Schema: z.ZodType<Prisma.UserWhereInput> = z
       .nullable(),
     accounts: z.lazy(() => AccountListRelationFilterObjectSchema).optional(),
     sessions: z.lazy(() => SessionListRelationFilterObjectSchema).optional(),
+    Booking: z.lazy(() => BookingListRelationFilterObjectSchema).optional(),
   })
   .strict();
 

@@ -3,6 +3,7 @@ import { StringFieldUpdateOperationsInputObjectSchema } from "./StringFieldUpdat
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from "./NullableStringFieldUpdateOperationsInput.schema";
 import { NullableDateTimeFieldUpdateOperationsInputObjectSchema } from "./NullableDateTimeFieldUpdateOperationsInput.schema";
 import { AccountUpdateManyWithoutUserNestedInputObjectSchema } from "./AccountUpdateManyWithoutUserNestedInput.schema";
+import { BookingUpdateManyWithoutUserNestedInputObjectSchema } from "./BookingUpdateManyWithoutUserNestedInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -44,6 +45,9 @@ const Schema: z.ZodType<Prisma.UserUpdateWithoutSessionsInput> = z
       .nullable(),
     accounts: z
       .lazy(() => AccountUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    Booking: z
+      .lazy(() => BookingUpdateManyWithoutUserNestedInputObjectSchema)
       .optional(),
   })
   .strict();

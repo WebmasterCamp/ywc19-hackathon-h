@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StringFieldUpdateOperationsInputObjectSchema } from "./StringFieldUpdateOperationsInput.schema";
+import { BookingUncheckedUpdateManyWithoutRestaurantNestedInputObjectSchema } from "./BookingUncheckedUpdateManyWithoutRestaurantNestedInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -10,6 +11,11 @@ const Schema: z.ZodType<Prisma.RestaurantUncheckedUpdateInput> = z
         z.string(),
         z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
       ])
+      .optional(),
+    Booking: z
+      .lazy(
+        () => BookingUncheckedUpdateManyWithoutRestaurantNestedInputObjectSchema
+      )
       .optional(),
   })
   .strict();
