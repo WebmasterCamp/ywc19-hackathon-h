@@ -2,12 +2,14 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "@ywc19/utils/api";
+import { CardMenu } from "@ywc19/components/CardMenu";
+import { Caruosel } from "@ywc19/components/Caruosel";
+import { SwiperSlide } from "swiper/react";
 import { CardRestaurant } from "@ywc19/components/CardRestaurant";
-import { CaroselResturant } from "@ywc19/components/CaroselResturant";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
+  const mock = [1, 2, 3, 4];
   return (
     <>
       <Head>
@@ -21,8 +23,24 @@ export default function Home() {
             Create <span className="text-primary-main">T3</span> App
           </h1>
           <div className="w-full">
-            <CaroselResturant />
+            <Caruosel sliderPerPage={2}>
+              {mock.map((item) => (
+                <SwiperSlide key={item}>
+                  <CardRestaurant />
+                </SwiperSlide>
+              ))}
+            </Caruosel>
           </div>
+          <div className="w-full">
+            <Caruosel sliderPerPage={4}>
+              {mock.map((item) => (
+                <SwiperSlide key={item}>
+                  <CardMenu />
+                </SwiperSlide>
+              ))}
+            </Caruosel>
+          </div>
+          <CardMenu />
           <div className="flex flex-col items-center gap-2">
             <p className="text-2xl text-white">
               {hello.data ? hello.data.greeting : "Loading tRPC query..."}

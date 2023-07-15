@@ -1,9 +1,7 @@
-import { ReactNode } from 'react';
-import { m, MotionProps } from 'framer-motion';
-import { useMediaQuery } from 'hooks/useMediaQuery';
-
-//
-import { varContainer } from '.';
+import { type ReactNode } from "react";
+import { m, type MotionProps } from "framer-motion";
+import { varContainer } from ".";
+import { useMediaQuery } from "@ywc19/hooks/useMediaQuery";
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +19,7 @@ export default function MotionViewport({
   className,
   ...other
 }: Props) {
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isMobile = useMediaQuery("(max-width: 767px)");
 
   if (isMobile && disableAnimatedMobile) {
     return <div className={className}>{children}</div>;

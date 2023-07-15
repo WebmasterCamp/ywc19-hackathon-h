@@ -15,7 +15,7 @@ export const CardRestaurant = () => {
       <div className="flex flex-col gap-y-4 py-4 pr-2">
         <div className="text-subtitle1 font-medium">SDGs point 9.0</div>
         <div className="text-h5">Hubuntu Restaurant</div>
-        <p className="max-w-[296px] text-body1">
+        <p className="line-clamp-3 max-w-[296px] text-body1">
           Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.
           Egestas elit dui Egestas elit dui scelerisque ut eu purus
         </p>

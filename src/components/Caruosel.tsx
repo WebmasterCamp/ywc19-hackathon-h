@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { FC, ReactNode, useCallback, useRef } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
 
@@ -7,10 +7,11 @@ import "swiper/css";
 
 // import required modules
 import { Mousewheel, Keyboard } from "swiper/modules";
-import { CardRestaurant } from "./CardRestaurant";
 
-export const CaroselResturant = () => {
-  const mock = [1, 2, 3, 4];
+export const Caruosel: FC<{ children: ReactNode; sliderPerPage: number }> = ({
+  children,
+  sliderPerPage,
+}) => {
   const sliderRef = useRef<SwiperRef | null>(null);
 
   const handlePrev = useCallback(() => {
@@ -34,14 +35,10 @@ export const CaroselResturant = () => {
         mousewheel={true}
         keyboard={true}
         spaceBetween={24}
-        slidesPerView={2}
+        slidesPerView={sliderPerPage}
         modules={[Mousewheel, Keyboard]}
       >
-        {mock.map((item) => (
-          <SwiperSlide key={item}>
-            <CardRestaurant />
-          </SwiperSlide>
-        ))}
+        {children}
       </Swiper>
       <div
         onClick={handlePrev}
