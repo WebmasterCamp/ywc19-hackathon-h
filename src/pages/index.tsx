@@ -4,6 +4,8 @@ import { SwiperSlide } from "swiper/react";
 import Head from "next/head";
 import { CardMenu } from "@ywc19/components/CardMenu";
 import { LazyImage } from "@ywc19/components/LazyImage";
+import { type INavbarProps, Navbar } from "@ywc19/components/Navbar";
+import { Footer } from "@ywc19/components/Footer";
 
 export default function Home() {
   const mock = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -29,6 +31,25 @@ export default function Home() {
       name: "Drinks",
     },
   ];
+
+  const menu: INavbarProps["data"] = [
+    {
+      name: "Home",
+      href: "#",
+    },
+    {
+      name: "About",
+      href: "#",
+    },
+    {
+      name: "Contact",
+      href: "#",
+    },
+    {
+      name: "Service",
+      href: "#",
+    },
+  ];
   return (
     <>
       <Head>
@@ -37,8 +58,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center ">
-        <div className="h-[656px] w-full bg-[url('/assets/bg.png')] bg-cover bg-center bg-no-repeat px-[140px] pt-[368px]">
-          <p className="text-h1 font-bold text-primary-main "> Content</p>
+        <Navbar data={menu} />
+        <div className="h-[656px] w-full bg-[url('/assets/bg.png')]  bg-cover bg-center bg-no-repeat px-[140px] pt-[368px]">
+          <p className="text-h1 font-bold text-primary-main"> Content</p>
+
           <form>
             <label className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Search
@@ -138,6 +161,7 @@ export default function Home() {
             <p className="text-2xl text-white"></p>
           </div>
         </div>
+        <Footer data={menu} />
       </main>
     </>
   );
