@@ -5,7 +5,7 @@ import Head from "next/head";
 import { CardMenu } from "@ywc19/components/CardMenu";
 
 export default function Home() {
-  const mock = [1, 2, 3, 4];
+  const mock = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <>
       <Head>
