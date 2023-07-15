@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useCallback, useRef } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
+import { Swiper, type SwiperRef } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";

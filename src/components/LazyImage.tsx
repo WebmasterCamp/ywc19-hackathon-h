@@ -34,7 +34,6 @@ export function LazyImage({
   effect = "blur",
   style,
   className,
-  placeholderSrc,
   ...other
 }: Props) {
   if (ratio) {
@@ -47,8 +46,8 @@ export function LazyImage({
           overflow: "hidden",
           position: "relative",
           paddingTop: getRatio(ratio),
-          width: other.width || "100%",
-          height: other.height || "100%",
+          width: other.width ?? 100,
+          // height: other.height || "100%",
           ...style,
         }}
       >
@@ -59,7 +58,6 @@ export function LazyImage({
             height: "100%",
             objectFit: "cover",
           }}
-          // effect={disabledEffect ? undefined : effect}
           placeholderSrc="/assets/placeholder.svg"
           {...other}
           onError={({ currentTarget }) => {
@@ -88,7 +86,6 @@ export function LazyImage({
           height: "100%",
           objectFit: "cover",
         }}
-        // effect={disabledEffect ? undefined : effect}
         placeholderSrc="/assets/placeholder.svg"
         {...other}
       />

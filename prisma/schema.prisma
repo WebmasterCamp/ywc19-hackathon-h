@@ -6,10 +6,6 @@ generator client {
     previewFeatures = ["jsonProtocol"]
 }
 
-generator zod {
-    provider = "prisma-zod-generator"
-}
-
 datasource db {
     provider = "postgresql"
     url      = env("DATABASE_URL")
@@ -56,6 +52,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    Booking       Booking[]
 }
 
 model VerificationToken {
@@ -66,6 +63,16 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+model Booking {
+    // zod generator not support for composite key
+    id           String     @id @default(cuid())
+    userId       String
+    user         User       @relation(fields: [userId], references: [id])
+    restaurantId String
+    restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+}
+
 model Restaurant {
-    id String @id @default(cuid())
+    id      String    @id @default(cuid())
+    Booking Booking[]
 }
