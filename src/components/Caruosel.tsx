@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useCallback, useRef } from "react";
+import React, { type FC, type ReactNode, useCallback, useRef } from "react";
 // Import Swiper React components
 import { Swiper, type SwiperRef } from "swiper/react";
 
@@ -47,6 +47,7 @@ export const Caruosel: FC<{ children: ReactNode; sliderPerPage: number }> = ({
         <svg
           width="24"
           height="25"
+          className="h-5 w-5"
           viewBox="0 0 24 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -61,11 +62,12 @@ export const Caruosel: FC<{ children: ReactNode; sliderPerPage: number }> = ({
       </div>
       <div
         onClick={handleNext}
-        className="absolute -right-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full "
+        className="absolute -right-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-[#637381]/50 bg-[#637381]/50 "
       >
         <svg
           width="24"
           height="24"
+          className="h-5 w-5"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ import { LazyImage } from "./LazyImage";
 export const CardRestaurant = () => {
   return (
     <div
-      className={`group relative flex h-80 w-full gap-x-4 overflow-hidden rounded-xl  bg-white shadow`}
+      className={`group relative my-1 flex h-80 w-full gap-x-4 overflow-hidden  rounded-xl bg-white shadow-[0px_12px_24px_-4px_rgba(145,158,171,0.12),0px_0px_2px_0px_rgba(145,_158,_171,_0.20)]`}
     >
       <LazyImage
         className="h-full w-[308px] transition-all duration-300 group-hover:scale-105"
