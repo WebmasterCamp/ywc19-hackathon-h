@@ -59,7 +59,7 @@ export function LazyImage({
             height: "100%",
             objectFit: "cover",
           }}
-          effect={disabledEffect ? undefined : effect}
+          // effect={disabledEffect ? undefined : effect}
           placeholderSrc="/assets/placeholder.svg"
           {...other}
           onError={({ currentTarget }) => {
@@ -88,7 +88,7 @@ export function LazyImage({
           height: "100%",
           objectFit: "cover",
         }}
-        effect={disabledEffect ? undefined : effect}
+        // effect={disabledEffect ? undefined : effect}
         placeholderSrc="/assets/placeholder.svg"
         {...other}
       />

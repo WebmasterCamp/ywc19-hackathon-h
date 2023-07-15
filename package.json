@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-lazy-load-image-component": "^1.6.0",
     "superjson": "1.12.2",
+    "swiper": "^10.0.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
