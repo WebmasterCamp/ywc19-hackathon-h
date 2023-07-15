@@ -37,9 +37,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center ">
-        <div className="h-[656px] w-full bg-[url('/assets/bg.png')] px-[140px] pt-[368px]">
-          <p className="text-h1 font-bold text-primary-main"> Content</p>
-
+        <div className="h-[656px] w-full bg-[url('/assets/bg.png')] bg-cover bg-center bg-no-repeat px-[140px] pt-[368px]">
+          <p className="text-h1 font-bold text-primary-main "> Content</p>
           <form>
             <label className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Search
