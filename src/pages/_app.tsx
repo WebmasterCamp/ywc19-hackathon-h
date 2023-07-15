@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "@ywc19/utils/api";
 import "@ywc19/styles/globals.css";
+import MotionLazyContainer from "@ywc19/components/animate/MotionLazyContainer";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -10,7 +11,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <MotionLazyContainer>
+        <Component {...pageProps} />
+      </MotionLazyContainer>
     </SessionProvider>
   );
 };
