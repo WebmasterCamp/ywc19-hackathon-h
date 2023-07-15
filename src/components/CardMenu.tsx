@@ -21,10 +21,9 @@ export const CardMenu = () => {
         <div className="line-clamp-2  text-base font-normal leading-snug text-zinc-800">
           Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.
         </div>
-        <div className="inline-flex items-center justify-start gap-4  pt-4">
-          <div className="relative h-6 w-6 rounded-full bg-gray-500" />
-          <p className="text-subtitle1 font-medium"> Google</p>
-        </div>
+        <button className="mt-2 flex w-full items-center justify-center rounded-full bg-primary-main  px-4 py-[6px] text-sm font-bold text-general-main hover:bg-primary-dark">
+          Add to cart
+        </button>
       </div>
     </div>
   );

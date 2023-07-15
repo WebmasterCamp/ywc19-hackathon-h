@@ -24,14 +24,6 @@ export const CardRestaurant = () => {
           </p>
           <div className="text-sm font-medium">1.1 km</div>
         </div>
-        <div className="mt-auto flex gap-x-4">
-          <div className="w-full rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-bold text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <button className="button">Gluten-Free</button>
-          </div>
-          <div className="w-full rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-bold text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <button className="button">Vegan</button>
-          </div>
-        </div>
       </div>
     </div>
   );
