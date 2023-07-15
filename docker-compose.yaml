@@ -7,7 +7,7 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
-    env_file: .env.local
+    env_file: .env
     networks:
       - database
     depends_on:
