@@ -6,6 +6,10 @@ generator client {
     previewFeatures = ["jsonProtocol"]
 }
 
+generator zod {
+    provider = "prisma-zod-generator"
+}
+
 datasource db {
     provider = "postgresql"
     url      = env("DATABASE_URL")
@@ -60,4 +64,8 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Restaurant {
+    id String @id @default(cuid())
 }
