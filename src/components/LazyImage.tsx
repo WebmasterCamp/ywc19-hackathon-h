@@ -1,7 +1,7 @@
 import {
   LazyLoadImage,
-  LazyLoadImageProps,
-  Effect,
+  type LazyLoadImageProps,
+  type Effect,
 } from "react-lazy-load-image-component";
 
 export type ImageRato =
@@ -60,11 +60,11 @@ export function LazyImage({
             objectFit: "cover",
           }}
           effect={disabledEffect ? undefined : effect}
-          placeholderSrc="/blog/assets/placeholder.svg"
+          placeholderSrc="/assets/placeholder.svg"
           {...other}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
-            currentTarget.src = "/blog/assets/image.svg";
+            currentTarget.src = "/assets/image.svg";
           }}
         />
       </span>
@@ -89,7 +89,7 @@ export function LazyImage({
           objectFit: "cover",
         }}
         effect={disabledEffect ? undefined : effect}
-        placeholderSrc="/blog/assets/placeholder.svg"
+        placeholderSrc="/assets/placeholder.svg"
         {...other}
       />
     </span>
