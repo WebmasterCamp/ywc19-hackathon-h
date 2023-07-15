@@ -28,6 +28,7 @@
     "react-lazy-load-image-component": "^1.6.0",
     "superjson": "1.12.2",
     "swiper": "^10.0.4",
+    "tailwind-merge": "^1.13.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
