@@ -84,6 +84,8 @@ model Restaurant {
     menus         Menu[]
     isRecommended Boolean @default(false)
     tags          Tag[]
+    contact       String  @default("")
+    openTime      String  @default("")
 }
 
 model Menu {
@@ -93,6 +95,7 @@ model Menu {
     name          String
     price         Int
     booking       Booking[]
+    description   String      @default("")
     isRecommended Boolean     @default(false)
 }
 

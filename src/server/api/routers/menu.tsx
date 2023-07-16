@@ -4,46 +4,36 @@ import {
 } from "@ywc19/server/api/trpc";
 import { z } from "zod";
 
-const UserFindManySchema = z.object({
+const MenuFindManySchema = z.object({
     where: z.object({
         name: z.string().optional(),
         isRecommended: z.boolean().optional(),
-        tags: z.string().array().optional(),
+        restaurantId: z.string().optional(),
     }).optional(),
     limit: z.number().min(1).max(100).nullish(),
     cursor: z.string().nullish(),
 })
 
-const UserFindUniqueSchema = z.object({
+const MenuFindUniqueSchema = z.object({
     where: z.object({
         id: z.string()
     })
 })
 
-export const restaurantRouter = createTRPCRouter({
-    findMany: publicProcedure.input(UserFindManySchema).query(async ({ input, ctx }) => {
-        console.log(input.where)
+export const menuRouter = createTRPCRouter({
+    findMany: publicProcedure.input(MenuFindManySchema).query(async ({ input, ctx }) => {
         const limit = input.limit ?? 50;
-        const items = await ctx.prisma.restaurant.findMany({
+        const items = await ctx.prisma.menu.findMany({
             where: input.where?.name ? {
                 name: input.where?.name ? {
                     contains: input.where.name
                 } : undefined,
                 isRecommended: input.where?.isRecommended ? input.where.isRecommended : undefined,
-                tags: input.where.tags ? {
-                    some: {
-                        name: {
-                            in: input.where.tags
-                        }
-                    }
-                } : undefined,
+                restaurantId: input.where?.restaurantId ? input.where.restaurantId : undefined,
             } : undefined,
             cursor: input.cursor ? { id: input.cursor } : undefined,
             take: limit + 1,
             orderBy: { id: 'asc' },
-            include: {
-                tags: true
-            }
         })
 
         let nextCursor: typeof input.cursor | undefined = undefined;
@@ -57,7 +47,7 @@ export const restaurantRouter = createTRPCRouter({
         };
     }),
 
-    findUnique: publicProcedure.input(UserFindUniqueSchema).query(({ input, ctx }) => {
+    findUnique: publicProcedure.input(MenuFindUniqueSchema).query(({ input, ctx }) => {
         return ctx.prisma.restaurant.findUnique({
             where: {
                 id: input.where.id
