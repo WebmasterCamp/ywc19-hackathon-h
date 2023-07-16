@@ -134,15 +134,14 @@ export default function Home() {
         <div className="container -mt-[50px] flex flex-col items-center justify-center gap-12 px-4 pb-16 ">
           <div className="flex gap-x-6 pb-[56px] ">
             {category.map((item) => (
-              <button
-                key={item.id}
-                className="flex items-center gap-x-8 rounded-xl bg-white p-8 py-6 shadow-[0px_12px_24px_-4px_rgba(145,158,171,0.12),0px_0px_2px_0px_rgba(145,_158,_171,_0.20)]"
-              >
-                <LazyImage src={item.img} className="h-12 w-12" />
-                <p className="w-[158px] truncate text-start text-h4 font-semibold">
-                  {item.name}
-                </p>
-              </button>
+              <Link href="/category" key={item.id}>
+                <button className="flex items-center gap-x-8 rounded-xl bg-white p-8 py-6 shadow-[0px_12px_24px_-4px_rgba(145,158,171,0.12),0px_0px_2px_0px_rgba(145,_158,_171,_0.20)]">
+                  <LazyImage src={item.img} className="h-12 w-12" />
+                  <p className="w-[158px] truncate text-start text-h4 font-semibold">
+                    {item.name}
+                  </p>
+                </button>
+              </Link>
             ))}
           </div>
           <div className="w-full">
@@ -150,9 +149,11 @@ export default function Home() {
               <p className="flex-1 text-h3 font-semibold">
                 Recommended Restaurants
               </p>
-              <button className="rounded-full bg-primary-main px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
-                See all
-              </button>
+              <Link href="/recommend">
+                <button className="rounded-full bg-primary-main px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
+                  See all
+                </button>
+              </Link>
             </div>
             {
               <Caruosel sliderPerPage={2}>
@@ -169,9 +170,11 @@ export default function Home() {
               <p className="flex-1 text-h3 font-semibold">
                 Restaurant Nearby me
               </p>
-              <button className="rounded-full bg-primary-main  px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
-                See all
-              </button>
+              <Link href="/near-me">
+                <button className="rounded-full bg-primary-main  px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
+                  See all
+                </button>
+              </Link>
             </div>
             <Caruosel sliderPerPage={2}>
               {mock.map((item) => (
@@ -184,9 +187,11 @@ export default function Home() {
           <div className="w-full">
             <div className="mb-8 flex items-center gap-x-[46px]">
               <p className="flex-1 text-h3 font-semibold">Recommended Menu</p>
-              <button className="rounded-full bg-primary-main  px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
-                See all
-              </button>
+              <Link href="/near-me">
+                <button className="rounded-full bg-primary-main  px-[66px] py-3 text-xl font-semibold text-general-main hover:bg-primary-dark">
+                  See all
+                </button>
+              </Link>
             </div>
             <Caruosel
               sliderPerPage={2}
@@ -206,9 +211,6 @@ export default function Home() {
                   </div>
                 ))}
             </Caruosel>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white"></p>
           </div>
         </div>
         <ModalConfirm />
