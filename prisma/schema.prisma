@@ -52,7 +52,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    Booking       Booking[]
+    bookings      Booking[]
 }
 
 model VerificationToken {
@@ -64,16 +64,45 @@ model VerificationToken {
 }
 
 model Booking {
-    id           String     @default(cuid())
-    userId       String
-    user         User       @relation(fields: [userId], references: [id])
-    restaurantId String
-    restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+    id         String        @default(cuid())
+    userId     String
+    user       User          @relation(fields: [userId], references: [id])
+    menuId     String
+    menu       Menu          @relation(fields: [menuId], references: [id])
+    bookedTime DateTime
+    status     BookingStatus
 
-    @@id([userId, restaurantId, id])
+    @@id([userId, menuId, id])
 }
 
 model Restaurant {
-    id      String    @id @default(cuid())
-    Booking Booking[]
+    id            String  @id @default(cuid())
+    name          String
+    description   String
+    location      String
+    imageUrl      String?
+    menus         Menu[]
+    isRecommended Boolean @default(false)
+    tags          Tag[]
+}
+
+model Menu {
+    id            String      @id @default(cuid())
+    restaurant    Restaurant? @relation(fields: [restaurantId], references: [id])
+    restaurantId  String?
+    name          String
+    price         Int
+    booking       Booking[]
+    isRecommended Boolean     @default(false)
+}
+
+model Tag {
+    id          String       @id @default(cuid())
+    name        String       @unique
+    restaurants Restaurant[]
+}
+
+enum BookingStatus {
+    NOT_PAID
+    PAID
 }
