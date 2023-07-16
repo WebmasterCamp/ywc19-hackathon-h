@@ -41,5 +41,6 @@ USER node
 
 COPY --from=build /usr/src/app/.next/standalone ./
 COPY --from=build /usr/src/app/.next/static ./.next/static
+COPY --from=build /usr/src/app/public ./public
 
 CMD node server.js
