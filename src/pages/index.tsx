@@ -8,98 +8,89 @@ import { api } from "@ywc19/utils/api";
 import ModalConfirm from "@ywc19/components/ModalConfirm";
 import Link from "next/link";
 import { CaruoselContent } from "@ywc19/components/CaruoselContent";
-import { INavbarProps } from "@ywc19/components/Navbar";
+import { type INavbarProps } from "@ywc19/components/Navbar";
 
 export default function Home() {
-  const mock = [1, 2, 3, 4, 5, 6, 7, 8];
-  const {
-    data: restaurant,
-    fetchNextPage,
-    isLoading,
-  } = api.restaurant.findMany.useInfiniteQuery(
-    {
-      limit: 2,
-    },
-    {
-      getNextPageParam: (lastPage) => lastPage.nextCursor,
-    }
-  );
-  const category = [
-    {
-      id: 0,
-      img: "/assets/appetizers.png",
-      name: "Appetizers",
-    },
-    {
-      id: 1,
-      img: "/assets/dishes.png",
-      name: "Dishes",
-    },
-    {
-      id: 2,
-      img: "/assets/desserts.png",
-      name: "Desserts",
-    },
-    {
-      id: 3,
-      img: "/assets/drinks.png",
-      name: "Drinks",
-    },
-  ];
+    const mock = [1, 2, 3, 4, 5, 6, 7, 8];
+    const {
+        data: restaurant,
+    } = api.restaurant.findMany.useQuery({});
+    const category = [
+        {
+            id: 0,
+            img: "/assets/appetizers.png",
+            name: "Appetizers",
+        },
+        {
+            id: 1,
+            img: "/assets/dishes.png",
+            name: "Dishes",
+        },
+        {
+            id: 2,
+            img: "/assets/desserts.png",
+            name: "Desserts",
+        },
+        {
+            id: 3,
+            img: "/assets/drinks.png",
+            name: "Drinks",
+        },
+    ];
 
-  const menu: INavbarProps["data"] = [
-    {
-      name: "Home",
-      href: "#",
-    },
-    {
-      name: "About",
-      href: "#",
-    },
-    {
-      name: "Contact",
-      href: "#",
-    },
-    {
-      name: "Service",
-      href: "#",
-    },
-  ];
-  return (
-    <>
-      <Head>
-        <title>SustainDish</title>
-        <meta name="title" content="SustainDish" />
-        <meta
-          name="description"
-          content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
-        />
+    const menu: INavbarProps["data"] = [
+        {
+            name: "Home",
+            href: "#",
+        },
+        {
+            name: "About",
+            href: "#",
+        },
+        {
+            name: "Contact",
+            href: "#",
+        },
+        {
+            name: "Service",
+            href: "#",
+        },
+    ];
+    return (
+        <>
+            <Head>
+                <title>SustainDish</title>
+                <meta name="title" content="SustainDish" />
+                <meta
+                    name="description"
+                    content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
+                />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={"/"} />
-        <meta property="og:title" content="SustainDish" />
-        <meta
-          property="og:description"
-          content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
-        />
-        <meta property="og:image" content={"/assets/thumbnail.png"} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={"/"} />
+                <meta property="og:title" content="SustainDish" />
+                <meta
+                    property="og:description"
+                    content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
+                />
+                <meta property="og:image" content={"/assets/thumbnail.png"} />
 
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={"/"} />
-        <meta property="twitter:title" content="SustainDish" />
-        <meta
-          property="twitter:description"
-          content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
-        />
-        <meta property="twitter:image" content={"/assets/thumbnail.png"} />
-      </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center ">
-        <div className="h-[656px] w-full bg-[url('/assets/bg.png')]  bg-cover bg-center bg-no-repeat px-[140px] pt-[288px]">
-          <p className="text-h1 font-bold text-primary-main">
-            <span className="text-h2"> Getting the Food,</span>
-            <br />
-            Saving the Earth
-          </p>
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content={"/"} />
+                <meta property="twitter:title" content="SustainDish" />
+                <meta
+                    property="twitter:description"
+                    content="A one-stop platform for sustainable restaurants lets you be part of helping people, the environment, and local economics."
+                />
+                <meta property="twitter:image" content={"/assets/thumbnail.png"} />
+            </Head>
+            <main className="flex min-h-screen flex-col items-center justify-center ">
+                <div className="h-[656px] w-full bg-[url('/assets/bg.png')]  bg-cover bg-center bg-no-repeat px-[140px] pt-[288px]">
+                    <p className="text-h1 font-bold text-primary-main">
+                        <span className="text-h2"> Getting the Food,</span>
+                        <br />
+                        Saving the Earth
+                    </p>
 
           <form>
             <label className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white">

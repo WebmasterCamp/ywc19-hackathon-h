@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
+    provider = "sqlite"
     url      = env("DATABASE_URL")
 }
 
@@ -64,13 +64,12 @@ model VerificationToken {
 }
 
 model Booking {
-    id         String        @default(cuid())
+    id         String   @default(cuid())
     userId     String
-    user       User          @relation(fields: [userId], references: [id])
+    user       User     @relation(fields: [userId], references: [id])
     menuId     String
-    menu       Menu          @relation(fields: [menuId], references: [id])
+    menu       Menu     @relation(fields: [menuId], references: [id])
     bookedTime DateTime
-    status     BookingStatus
 
     @@id([userId, menuId, id])
 }
@@ -101,11 +100,6 @@ model Menu {
 
 model Tag {
     id          String       @id @default(cuid())
-    name        String       @unique
+    name        String
     restaurants Restaurant[]
-}
-
-enum BookingStatus {
-    NOT_PAID
-    PAID
 }
