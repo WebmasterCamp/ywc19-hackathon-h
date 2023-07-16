@@ -5,7 +5,6 @@ import Head from "next/head";
 import { CardMenu } from "@ywc19/components/CardMenu";
 import { LazyImage } from "@ywc19/components/LazyImage";
 import { type INavbarProps, Navbar } from "@ywc19/components/Navbar";
-import { Footer } from "@ywc19/components/Footer";
 import ModalConfirm from "@ywc19/components/ModalConfirm";
 
 export default function Home() {
@@ -33,24 +32,6 @@ export default function Home() {
     },
   ];
 
-  const menu: INavbarProps["data"] = [
-    {
-      name: "Home",
-      href: "#",
-    },
-    {
-      name: "About",
-      href: "#",
-    },
-    {
-      name: "Contact",
-      href: "#",
-    },
-    {
-      name: "Service",
-      href: "#",
-    },
-  ];
   return (
     <>
       <Head>
@@ -59,7 +40,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center ">
-        <Navbar data={menu} />
         <ModalConfirm />
         <div className="h-[656px] w-full bg-[url('/assets/bg.png')]  bg-cover bg-center bg-no-repeat px-[140px] pt-[368px]">
           <p className="text-h1 font-bold text-primary-main"> Content</p>
@@ -163,7 +143,6 @@ export default function Home() {
             <p className="text-2xl text-white"></p>
           </div>
         </div>
-        <Footer data={menu} />
       </main>
     </>
   );
