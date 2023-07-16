@@ -1,62 +1,9 @@
-import { CardRestaurant } from "@ywc19/components/CardRestaurant";
-import { Caruosel } from "@ywc19/components/Caruosel";
-import { SwiperSlide } from "swiper/react";
-import Head from "next/head";
-import { CardMenu } from "@ywc19/components/CardMenu";
 import { LazyImage } from "@ywc19/components/LazyImage";
-import { type INavbarProps, Navbar } from "@ywc19/components/Navbar";
-import { Footer } from "@ywc19/components/Footer";
-import { api } from "@ywc19/utils/api";
-import ModalConfirm from "@ywc19/components/ModalConfirm";
 
 export default function Home() {
-  const mock = [1, 2, 3, 4, 5, 6, 7, 8];
-
-  const category = [
-    {
-      id: 0,
-      img: "/assets/appetizers.png",
-      name: "Appetizers",
-    },
-    {
-      id: 1,
-      img: "/assets/dishes.png",
-      name: "Dishes",
-    },
-    {
-      id: 2,
-      img: "/assets/desserts.png",
-      name: "Desserts",
-    },
-    {
-      id: 3,
-      img: "/assets/drinks.png",
-      name: "Drinks",
-    },
-  ];
-
-  const menu: INavbarProps["data"] = [
-    {
-      name: "Home",
-      href: "#",
-    },
-    {
-      name: "About",
-      href: "#",
-    },
-    {
-      name: "Contact",
-      href: "#",
-    },
-    {
-      name: "Service",
-      href: "#",
-    },
-  ];
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-center ">
-        <Navbar data={menu} />
         <div className="flex h-[656px] w-full flex-col bg-[url('/assets/food.png')]  bg-cover bg-center bg-no-repeat px-[80px] pt-[368px]">
           <p className="mt-auto text-h1 font-bold text-white">
             BO.LAN : Thai restaurant serves premium dishes from the farm to the
@@ -91,7 +38,7 @@ export default function Home() {
             />
             <p>
               Bo.Lan selects ingredients and seasonings from within Thailand
-              only. That's why Bolan focuses on the idea of ​​sustainable
+              only. That&apos;s why Bolan focuses on the idea of ​​sustainable
               organic farming. In addition, the menu will change according to
               the season and produce in Thailand.
             </p>
@@ -170,7 +117,6 @@ export default function Home() {
             className="mx-auto"
           />
         </div>
-        <Footer data={menu} />
       </main>
     </>
   );
