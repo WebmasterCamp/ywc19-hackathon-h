@@ -40,11 +40,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
       href: "#",
     },
   ];
+
   return (
     <SessionProvider session={session}>
       <MotionLazyContainer>
         <Navbar data={menu} />
-        {!["/about-us"].includes(pathname) && (
+        {!["about-us", "content"].includes(pathname?.split("/")?.[1] ?? "") && (
           <div
             className="fixed right-[40px] top-[100px] z-[2] flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-[#F96E46]"
             onClick={handleOpen}
