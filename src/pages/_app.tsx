@@ -25,19 +25,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const menu: INavbarProps["data"] = [
     {
       name: "Home",
-      href: "#",
+      href: "/",
     },
     {
       name: "About",
       href: "/about-us",
-    },
-    {
-      name: "Contact",
-      href: "#",
-    },
-    {
-      name: "Service",
-      href: "#",
     },
   ];
 
