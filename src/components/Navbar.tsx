@@ -29,14 +29,8 @@ export const Navbar: FC<INavbarProps> = (props) => {
     <nav className="fixed left-0 top-0 z-20 w-full border-b border-gray-200 bg-white dark:border-gray-600">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="https://flowbite.com/" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-2xl font-semibold">
-            Flowbite
-          </span>
+          <img src="/assets/icon.png" className="mr-3 h-8" alt="sustain dish" />
+          <img src="/assets/word.png" height={20} alt="sustain dish" />
         </a>
         <div className="flex md:order-2">
           <button
