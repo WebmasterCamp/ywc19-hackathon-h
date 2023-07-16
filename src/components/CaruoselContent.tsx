@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Mousewheel, Keyboard, Pagination } from "swiper/modules";
+import { Mousewheel, Keyboard, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 
 export const CaruoselContent = () => {
@@ -14,7 +14,8 @@ export const CaruoselContent = () => {
     <div className="relative w-full">
       <Swiper
         autoplay={{
-          delay: 3000,
+          delay: 2500,
+          disableOnInteraction: false,
         }}
         cssMode={true}
         navigation={true}
@@ -23,7 +24,7 @@ export const CaruoselContent = () => {
         keyboard={true}
         spaceBetween={24}
         slidesPerView={1}
-        modules={[Mousewheel, Keyboard, Pagination]}
+        modules={[Mousewheel, Keyboard, Pagination, Autoplay]}
       >
         <SwiperSlide>
           <Link
