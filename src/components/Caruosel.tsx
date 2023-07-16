@@ -42,7 +42,7 @@ export const Caruosel: FC<{ children: ReactNode; sliderPerPage: number }> = ({
       </Swiper>
       <div
         onClick={handlePrev}
-        className="absolute -left-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full "
+        className="absolute -left-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full   bg-[#637381]/50"
       >
         <svg
           width="24"
@@ -62,7 +62,7 @@ export const Caruosel: FC<{ children: ReactNode; sliderPerPage: number }> = ({
       </div>
       <div
         onClick={handleNext}
-        className="absolute -right-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-[#637381]/50 bg-[#637381]/50 "
+        className="absolute -right-6 top-1/2 z-[100] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-[#637381]/50 "
       >
         <svg
           width="24"
