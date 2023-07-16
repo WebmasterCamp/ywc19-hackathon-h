@@ -8,6 +8,7 @@ import { api } from "@ywc19/utils/api";
 import ModalConfirm from "@ywc19/components/ModalConfirm";
 import Link from "next/link";
 import { CaruoselContent } from "@ywc19/components/CaruoselContent";
+import { INavbarProps } from "@ywc19/components/Navbar";
 
 export default function Home() {
   const mock = [1, 2, 3, 4, 5, 6, 7, 8];
