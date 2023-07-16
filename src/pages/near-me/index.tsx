@@ -12,7 +12,7 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-2 gap-6">
             {mock.map((item) => (
-              <CardRestaurant key={item} />
+              <CardRestaurant key={item} name="mock" />
             ))}
           </div>
         </div>
