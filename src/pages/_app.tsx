@@ -3,16 +3,28 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "@ywc19/utils/api";
 import "@ywc19/styles/globals.css";
+import { Sidebar } from "@ywc19/components/Sidebar";
 import MotionLazyContainer from "@ywc19/components/animate/MotionLazyContainer";
+import { useState } from "react";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  const [open, setOpen] = useState(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
   return (
     <SessionProvider session={session}>
       <MotionLazyContainer>
-        <div className="fixed right-[40px] top-[100px] z-[2] flex h-20 w-20 items-center justify-center rounded-full bg-[#F96E46]">
+        <div
+          className="fixed right-[40px] top-[100px] z-[2] flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-[#F96E46]"
+          onClick={handleOpen}
+        >
           <div className="absolute -right-1 -top-1 inline-flex h-6 w-6 items-center justify-center rounded-full  bg-[#C01A0E] text-xs font-bold text-white dark:border-gray-900">
             20
           </div>
@@ -30,6 +42,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           </svg>
         </div>
         <Component {...pageProps} />
+        <Sidebar open={open} handleClose={handleClose} />
       </MotionLazyContainer>
     </SessionProvider>
   );
