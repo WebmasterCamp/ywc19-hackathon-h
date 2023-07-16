@@ -30,6 +30,7 @@
         "superjson": "1.12.2",
         "swiper": "^10.0.4",
         "tailwind-merge": "^1.13.2",
+        "ts-node": "^10.9.1",
         "zod": "^3.21.4"
     },
     "devDependencies": {

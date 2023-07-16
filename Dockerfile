@@ -19,6 +19,7 @@ ENV SKIP_ENV_VALIDATION=true
 # Create a stage for building the application.
 FROM base as build
 
+ENV PORT=8080
 
 RUN corepack prepare yarn@3.6.1
 RUN corepack enable yarn
@@ -28,19 +29,19 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn prisma generate
-RUN yarn run build
+RUN yarn prisma migrate reset --force
 
-FROM base as final
+CMD ["yarn", "dev"]
 
-ENV NODE_ENV production
-
-ENV PORT=8080
-
-USER node
-
-COPY --from=build /usr/src/app/.next/standalone ./
-COPY --from=build /usr/src/app/.next/static ./.next/static
-COPY --from=build /usr/src/app/public ./public
-
-CMD node server.js
+# FROM base as final
+#
+# ENV NODE_ENV production
+#
+#
+# USER node
+#
+# COPY --from=build /usr/src/app/.next/standalone ./
+# COPY --from=build /usr/src/app/.next/static ./.next/static
+# COPY --from=build /usr/src/app/prisma ./prisma
+#
+# CMD node server.js

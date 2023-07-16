@@ -11,11 +11,13 @@ async function main() {
                 location: 'Bangkok',
                 imageUrl: 'https://picsum.photos/200',
                 description: 'Lorem ipsum dolor sit amet',
+                contact: 'IG:peam1146',
+                openTime: '10:00 AM everyday',
                 tags: {
                     create: {
                         name: 'well_begin'
                     }
-                }
+                },
             }
         })
     }
